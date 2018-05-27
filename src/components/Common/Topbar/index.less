@@ -1,0 +1,29 @@
+@topbar-height: 53px;
+@topbar-color: #999c9e;
+
+.ers-topbar {
+  background: #000;
+  padding: 0 16px;
+  height: @topbar-height;
+  line-height: @topbar-height;
+  display: inline-block;
+  .ers-topbar-body {
+    height: @topbar-height;
+    line-height: @topbar-height;
+    .title {
+      line-height: 32px;
+      margin-top: 10px;
+      font-weight: 600;
+      display: inline-block;
+      color: @topbar-color;
+    }
+    .operate-area {
+      display: inline-block;
+      float: right;
+      a {
+        color: @topbar-color;
+      }
+    }
+  }
+
+}

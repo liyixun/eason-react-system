@@ -2,39 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less';
 import Sidebar from './components/Common/Sidebar';
+import Topbar from './components/Common/Topbar';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import 'antd';
-import {Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
-const SubMenu = Menu.SubMenu;
+import {Layout} from 'antd';
 
-const { Header, Footer, Content, Sider } = Layout;
+const {Footer, Content } = Layout;
 
 
-// const HomePage = () => <h1>Home Page</h1>;
+const HomePage = () => <h1>Home Page</h1>;
 const UserPage = () => <h1>User Page</h1>;
 const NotFoundPage = () => <h1>Not Found Page</h1>;
 
 
 const PrimaryLayout = () =>
-  <div className="">
+  <div className="ers-primary-layout">
     <Layout style={{ minHeight: '100vh' }}>
       <Sidebar/>
       <Layout>
-        <Header>Header</Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
+        <Topbar/>
+        <Content className="ers-content">
+          <div className="ers-content-body">
+            <main>
+              <Switch>
+                <Route path="/" exact component={HomePage}/>
+                <Route path="/user" component={UserPage}/>
+                <Route path="/404" component={NotFoundPage}/>
+                <Redirect to="/404"/>
+              </Switch>
+            </main>
+          </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          Ant Design ©2016 Created by Ant UED
+        </Footer>
       </Layout>
     </Layout>
 
-    <main>
-      <Switch>
-        {/*<Route path="/" exact component={HomePage}/>*/}
-        <Route path="/user" component={UserPage}/>
-        <Route path="/404" component={NotFoundPage}/>
-        {/*<Redirect to="/404"/>*/}
-      </Switch>
-    </main>
   </div>;
 
 const MyApp = () =>

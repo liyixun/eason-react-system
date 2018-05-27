@@ -7,7 +7,7 @@ const Sider = Layout.Sider;
 const SubMenu = Menu.SubMenu;
 const MenuItem = Menu.Item;
 
-class Nav extends React.PureComponent {
+class Sidebar extends React.PureComponent {
   state = {
     collapsed: false
   };
@@ -46,7 +46,7 @@ class Nav extends React.PureComponent {
         collapsed={this.state.collapsed}
         onCollapse={this.onCollapse}
       >
-        <div className="logo"/>
+        <div className="sidebar-logo"/>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           {
             this.parseMenu()
@@ -58,4 +58,4 @@ class Nav extends React.PureComponent {
   }
 }
 
-export default Nav;
+export default Sidebar;
