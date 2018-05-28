@@ -11,3 +11,9 @@ create-react-app使用antd: [博客](https://blog.csdn.net/gx15366039985/article
 
 #### 备注
 1.antd版本3.5.3,安装的时候版本号为^3.5.3,为了防止安装的时候版本不同带来的问题，这里先写死版本号  
+
+#### todo
+- [ ] React-router 4.0 总结
+- [x] 页面框架搭建
+- [ ] 前端请求方法封装（fetch 或 axios）
+

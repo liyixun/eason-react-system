@@ -26,10 +26,11 @@ const PrimaryLayout = () =>
           <div className="ers-content-body">
             <main>
               <Switch>
-                <Route path="/" exact component={HomePage}/>
+                <Route path="/home" exact component={HomePage}/>
                 <Route path="/user" component={UserPage}/>
                 <Route path="/404" component={NotFoundPage}/>
                 <Redirect to="/404"/>
+
               </Switch>
             </main>
           </div>
