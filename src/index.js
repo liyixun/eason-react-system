@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import './index.less';
+import store from './redux/store';
 import Sidebar from './components/Common/Sidebar';
 import Topbar from './components/Common/Topbar';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
@@ -44,10 +46,11 @@ const PrimaryLayout = () =>
   </div>;
 
 const MyApp = () =>
-  <BrowserRouter>
-    <PrimaryLayout/>
-  </BrowserRouter>;
-
+  <Provider store={store}>
+    <BrowserRouter>
+      <PrimaryLayout/>
+    </BrowserRouter>
+  </Provider>;
 
 ReactDOM.render(<MyApp/>, document.getElementById('root'));
 registerServiceWorker();

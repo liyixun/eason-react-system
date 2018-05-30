@@ -16,4 +16,7 @@ create-react-app使用antd: [博客](https://blog.csdn.net/gx15366039985/article
 - [ ] React-router 4.0 总结
 - [x] 页面框架搭建
 - [ ] 前端请求方法封装（fetch 或 axios）
+- [ ] 登录页开发（passport、redux、session）
+- [ ] redux引入
+
 
