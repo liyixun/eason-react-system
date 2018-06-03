@@ -9,6 +9,8 @@ import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import 'antd';
 import {Layout} from 'antd';
+import Rank from './components/Rank';
+import globalConfig from './config';
 
 const {Footer, Content } = Layout;
 
@@ -31,6 +33,7 @@ const PrimaryLayout = () =>
                 <Route path="/home" exact component={HomePage}/>
                 <Route path="/user" component={UserPage}/>
                 <Route path="/404" component={NotFoundPage}/>
+                <Route path="/rank" component={Rank}/>
                 <Redirect to="/404"/>
 
               </Switch>
@@ -38,7 +41,7 @@ const PrimaryLayout = () =>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2016 Created by Ant UED
+          <div dangerouslySetInnerHTML={{__html: globalConfig.footer}}></div>
         </Footer>
       </Layout>
     </Layout>

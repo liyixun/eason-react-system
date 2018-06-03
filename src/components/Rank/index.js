@@ -2,7 +2,7 @@ import React from 'react';
 import './index.less';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Tabs, Table, Icon, notification} from 'antd';
+import {Tabs, Table, Icon} from 'antd';
 import CommentComponent from '../CommentComponent';
 import PublishComment from '../PublishComment';
 import ReplyComment from '../ReplyComment';
@@ -96,8 +96,8 @@ class Rank extends React.PureComponent {
   }
 
   render() {
-    const tableStyle = {'margin-bottom': '20px'};
-    const playTotalStyle = {'font-weight': 'bold'};
+    const tableStyle = {'marginBottom': '20px'};
+    const playTotalStyle = {'fontWeight': 'bold'};
     return (
       <div>
         <Tabs onChange={this.changeTabEvent} defaultActiveKey={this.props.activeCommentType}>

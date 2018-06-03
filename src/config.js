@@ -2,16 +2,10 @@
  * 定义整个项目的全局配置
  */
 
-'use strict';
-
-// 约定优于配置
-// 我可以提供尽量多的配置, 但尽量不要太个性化, 接口的路径/名称/格式之类的
-// 遵循统一的规范, 好维护, 交给其他人也比较简单
-
 module.exports = {
-  name: 'OOXX管理后台',  // 项目的名字
-  favicon: 'http://jxy.me/favicon.ico',  // 设置网页的favicon, 可以是外链, 也可以是本地
-  footer: '<a target="_blank" href="http://jxy.me">foolbear</a>版权所有 © 2015-2099',  // footer中显示的字, 可以嵌入html标签
+  name: 'Eason React System11',  // 项目的名字
+  favicon: 'https://avatars0.githubusercontent.com/u/14371773?s=400&u=18df85a5cf0ba52d5b6b2d633ff50f9267da4f3a&v=4',  // 设置网页的favicon, 可以是外链, 也可以是本地
+  footer: '<a target="_blank" href="https://github.com/liyixun/eason-react-system">系统</a>版权所有 © 2018-2099',  // footer中显示的字, 可以嵌入html标签
 
   debug: true,  // 是否开启debug模式, 不会请求后端接口, 使用mock的数据
 
