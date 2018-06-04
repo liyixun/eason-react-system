@@ -1,13 +1,12 @@
-const Koa = require('koa')
-const app = new Koa()
-const views = require('koa-views')
-const json = require('koa-json')
-const onerror = require('koa-onerror')
-const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
+const Koa = require('koa');
+const app = new Koa();
+const json = require('koa-json');
+const onerror = require('koa-onerror');
+const bodyparser = require('koa-bodyparser');
+const logger = require('koa-logger');
+const cors = require('koa2-cors');
 
-const index = require('./routes/index')
-const users = require('./routes/users')
+const music = require('./routes/music');
 
 // error handler
 onerror(app)
@@ -15,14 +14,24 @@ onerror(app)
 // middlewares
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
-}))
-app.use(json())
-app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+}));
+app.use(json());
+app.use(logger());
 
-app.use(views(__dirname + '/views', {
-  extension: 'pug'
-}))
+
+app.use(cors({
+  origin: function (ctx) {
+    if (ctx.url === '/test') {
+      return '*'; // 允许来自所有域名请求
+    }
+    return 'http://localhost:8088';   // 这样就能只允许 http://localhost:8088 这个域名的请求了
+  },
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  maxAge: 5,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}));
 
 // logger
 app.use(async (ctx, next) => {
@@ -33,7 +42,8 @@ app.use(async (ctx, next) => {
 })
 
 // routes
-app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(music.routes(), music.allowedMethods());
 
-module.exports = app
+app.listen(3012, function () {
+  console.log('server is listen in port 3012');
+});
